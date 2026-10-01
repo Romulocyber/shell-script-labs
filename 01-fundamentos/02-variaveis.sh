@@ -1,7 +1,7 @@
 #!/bin/bash
 
-nome="Rômulo"
-idade=48
+nome="João"
+idade=32
 
 echo "Meu nome é $nome."
 echo "Tenho $idade anos."
