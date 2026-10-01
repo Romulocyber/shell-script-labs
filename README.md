@@ -48,14 +48,14 @@ Este repositório registra minha evolução prática em Shell Script, com foco e
 - substituição de comando `$(...)`
 - processamento sequencial com `shift`
 
-## 🗂️ Estrutura planejada
+## 🗂️ Estrutura atual
 
 ```text
 shell-script-labs/
-├── fundamentos/
-├── arquivos-diretorios/
-├── permissoes-linux/
-├── argumentos-exit-status/
+├── 01-fundamentos/
+├── 02-arquivos-diretorios/
+├── 03-permissoes-linux/
+├── 04-argumentos-exit-status/
 └── README.md
 ```
 
