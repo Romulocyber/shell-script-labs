@@ -35,14 +35,14 @@ Arquivo: `aula09-opcoes.sh`
 Exemplo de execução válida:
 
 ```bash
-./aula09-opcoes.sh --nome Romulo --idade 47
+./aula09-opcoes.sh --nome Usuario --idade 30
 ```
 
 Saída:
 
 ```text
-Nome: Romulo
-Idade: 47
+Nome: Usuario
+Idade: 30
 ```
 
 Exemplo de ajuda:
