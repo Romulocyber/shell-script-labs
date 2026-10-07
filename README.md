@@ -11,6 +11,7 @@ Este repositório registra minha evolução prática em Shell Script, com foco e
 - permissões e controle de acesso no Linux;
 - argumentos posicionais e códigos de saída;
 - validação de entradas;
+- processamento de opções de linha de comando;
 - construção gradual de scripts mais robustos e reutilizáveis.
 
 ## 📚 Conteúdos já praticados
@@ -37,16 +38,24 @@ Este repositório registra minha evolução prática em Shell Script, com foco e
 - `chgrp`
 - proprietário, grupo e outros
 
-### Argumentos e códigos de saída
+### Argumentos, códigos de saída e opções
 - `$0`, `$1`, `$2`, `$3`
 - `$#`
 - `"$@"`
 - `$?`
-- `exit`
+- `exit 0` e `exit 1`
 - validação de quantidade e conteúdo dos argumentos
+- `-z` e `-n`
 - `basename "$0"`
 - substituição de comando `$(...)`
-- processamento sequencial com `shift`
+- `for argumento in "$@"`
+- processamento sequencial com `while` e `shift`
+- `shift 2`
+- `case`
+- opções curtas e longas
+- validação numérica com regex
+- tratamento de opções desconhecidas
+- opção `--help`
 
 ## 🗂️ Estrutura atual
 
@@ -59,25 +68,19 @@ shell-script-labs/
 └── README.md
 ```
 
-Os diretórios serão preenchidos gradualmente com scripts, exemplos de execução e documentação conforme o avanço dos estudos.
+## ✅ Status atual
 
-## 🚧 Status atual
+**Aula 9 — Argumentos, códigos de saída e processamento de opções: concluída em 07/10/2026.**
 
-**Em desenvolvimento.**
-
-No momento, o estudo está na parte de **argumentos posicionais e processamento com `shift`**. O próximo passo é comparar o uso de `for argumento in "$@"` com `while (( $# > 0 )); do ... shift`.
+O laboratório `aula09-opcoes.sh` registra a prática com `case`, `shift 2`, opções curtas/longas, validação de entradas, regex e `--help`.
 
 ## 🔐 Relação com Cybersecurity
 
 Shell Script é uma base importante para automação de tarefas, administração de sistemas Linux, análise de arquivos, controle de permissões, tratamento de logs e criação de ferramentas auxiliares em ambientes de segurança.
 
-## 📌 Próximos passos
+## 📌 Próxima etapa
 
-- organizar os exercícios já concluídos por tema;
-- adicionar exemplos de execução;
-- documentar decisões e aprendizados;
-- evoluir os exercícios para pequenos projetos práticos;
-- aplicar boas práticas de versionamento com Git.
+**Fase 5 — Ferramentas do Linux**, iniciando por `grep` e avançando gradualmente conforme os estudos práticos.
 
 ---
 
