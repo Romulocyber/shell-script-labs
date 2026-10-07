@@ -1,58 +1,75 @@
 # Argumentos e Códigos de Saída
 
-Esta seção reúne exercícios e laboratórios relacionados a argumentos posicionais, validação de entradas e códigos de saída em Shell Script.
+Esta seção reúne exercícios e laboratórios da **Aula 9**, concluída em **07/10/2026**, sobre argumentos posicionais, códigos de saída, validação de entradas e processamento de opções em Shell Script.
 
 ## Conteúdos praticados
 
 - `$0` — nome ou caminho usado para executar o script
 - `$1`, `$2`, `$3` — argumentos posicionais
 - `$#` — quantidade de argumentos recebidos
-- `"$@"` — todos os argumentos preservando os limites originais
+- `"$@"` — todos os argumentos preservando seus limites
 - `$?` — código de saída do último comando executado
-- `exit` — encerramento do script com código de saída
-- validação da quantidade de argumentos
-- validação de argumentos vazios
-- uso de `basename "$0"`
+- `exit 0` e `exit 1`
+- captura imediata do status de saída em variável
+- validação da quantidade e do conteúdo dos argumentos
+- testes de string com `-z` e `-n`
+- `basename "$0"`
 - substituição de comando com `$(...)`
-- processamento sequencial de argumentos com `shift`
+- `for argumento in "$@"`
+- `while (( $# > 0 ))` com `shift`
+- efeito de `shift` sobre `$1` e `$#`
+- preservação do argumento atual antes do `shift`
+- `shift 2`
+- processamento de opções com `case`
+- opções curtas e longas, como `-n|--nome` e `-i|--idade`
+- validação numérica com `=~` e a regex `^[0-9]+$`
+- tratamento de opção desconhecida com `*)`
+- validação de opções obrigatórias
+- opção `-h|--help`
+- mensagem de uso com `basename "$0"`
 
-## Exemplo de uso
+## Laboratório concluído
 
-```bash
-./aula09.sh Kali Linux Cybersecurity
-```
+Arquivo: `aula09-opcoes.sh`
 
-## Exemplo de validação
-
-```bash
-if (( $# != 3 )); then
-    echo "Erro: informe exatamente 3 argumentos."
-    echo "Uso: $(basename "$0") <argumento1> <argumento2> <argumento3>"
-    exit 1
-fi
-```
-
-## Ponto atual dos estudos
-
-Atualmente estou praticando o processamento de argumentos com `shift`.
-
-O próximo passo será comparar:
+Exemplo de execução válida:
 
 ```bash
-for argumento in "$@"; do
-    echo "$argumento"
-done
+./aula09-opcoes.sh --nome Romulo --idade 47
 ```
 
-com:
+Saída:
+
+```text
+Nome: Romulo
+Idade: 47
+```
+
+Exemplo de ajuda:
+
+```bash
+./aula09-opcoes.sh --help
+```
+
+A opção de ajuda encerra com `exit 0`, indicando sucesso.
+
+## Aprendizado importante
+
+`for argumento in "$@"` percorre os argumentos sem consumi-los. Já o padrão:
 
 ```bash
 while (( $# > 0 )); do
-    echo "$1"
+    atual="$1"
     shift
 done
 ```
 
-A principal diferença é que `"$@"` percorre os argumentos sem alterar a lista original, enquanto `shift` modifica os argumentos posicionais a cada execução.
+processa e consome os argumentos posicionais.
 
-> Conteúdo em desenvolvimento.
+Também foi reforçada a diferença entre **avaliar a condição do `while`** e **executar o corpo do laço**: a condição pode ser avaliada uma vez a mais, quando finalmente se torna falsa.
+
+## Status
+
+**Aula 9 concluída.**
+
+Próxima etapa: **Fase 5 — Ferramentas do Linux**, iniciando por `grep`.
